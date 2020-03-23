@@ -1,0 +1,25 @@
+<div class="breadcrumb">
+  {{ template "breadcrumbnav" (dict "p1" . "p2" .) }}
+</div>
+{{ define "breadcrumbnav" }}
+{{ if .p1.Parent }}
+{{ template "breadcrumbnav" (dict "p1" .p1.Parent "p2" .p2 ) }}
+{{ else if not .p1.IsHome }}
+{{ template "breadcrumbnav" (dict "p1" .p1.Site.Home "p2" .p2 ) }}
+{{ end }}
+<span style="font-size: 0.8em;">
+  {{ if .p1.Parent }}
+  >
+  {{- end -}}
+    <a href="{{ if eq .p1 .p2 }}#{{ else }}{{ .p1.Permalink }}{{ end }}"
+    class="breadcrumb-link {{ if eq .p1 .p2 }}active{{ end }}"
+     style="margin-left: 5px; font-size: 0.85em; color:{{ if eq .p1 .p2 }}var(--primaryColor){{else}}var(--textColor){{ end }};"
+    >{{ if .p1.IsHome }}Home{{ end }}
+    {{ if gt (len .p1.Title) 15 }}
+    {{ substr .p1.Title 0 15 }}...
+    {{ else }}
+    {{ .p1.Title }}
+    {{ end }}</a
+  >
+</span>
+{{ end }}

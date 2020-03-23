@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+  {{- partial "head.html" . -}}
+  <body>
+    {{- partial "header.html" . -}}
+    {{- partial "menu.html" . -}}
+    <main id="content" style="padding: 10px; {{if not .IsHome }}margin-top: 80px; {{ end }}">
+      {{- block "main" . }}{{- end }}
+    </main>
+    {{ if not .IsHome }}
+    {{- partial "footer.html" . -}}
+    {{ end }}
+  </body>
+</html>

@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div
+  style="display: flex; flex-direction: column; margin-bottom: 0.5em;"
+>
+  <h1 style="margin: 0 0 0.25em 0; text-decoration: underline; font-size: 2.5em;">
+    {{- .Title -}}
+  </h1>
+  <div class="sharing-icons">
+    {{ partial "share.html" .}}
+  </div>
+</div>
+<div style="margin-bottom: 3.5em; font-style: italic; font-size: 0.9em;">by {{ .Site.Params.author }} &middot;
+  <time>{{ dateFormat .Site.Params.theme.dateFormat .Date }}</time></div>
+<div class="content">
+  {{ .Content }}
+</div>
+<script>
+  document.onkeydown = function(e) {
+    switch (e.keyCode) {
+      case 37:
+        //left key
+        document.querySelector(".previous-link").click();
+        break;
+      case 39:
+        //right key
+        document.querySelector(".next-link").click();
+        break;
+    }
+  };
+</script>
+{{ end }}

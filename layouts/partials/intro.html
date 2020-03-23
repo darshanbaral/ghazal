@@ -1,0 +1,38 @@
+<div
+  style="font-size: 2.2em; margin: 0 0 0.5em 0; display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; color: var(--primaryColor); text-align: center; line-height: 1.25em;"
+>
+  {{.Site.Params.title}}
+  <div
+    style="width: 20px; line-height: 0; padding: 1px 7px; margin-left: 0.35em; border-radius: 7px;"
+    class="show-more-info chevron-hz"
+    onclick="showInfo()"
+  >
+    {{ partial "icons/chevron.html" . }}
+  </div>
+</div>
+
+<script>
+  const showInfo = () => {
+    const showMoreInfo = document.querySelector(".show-more-info");
+    const profileImage = document.querySelector(".profile-image");
+    const chevron = document.querySelector(".fa-chevron-right");
+    const moreInfo = document.querySelector(".more-info");
+
+    if (showMoreInfo.classList.contains("chevron-hz")) {
+      showMoreInfo.classList.remove("chevron-hz");
+      profileImage.style.opacity = "0";
+      profileImage.style.visibility = "hidden";
+      chevron.style.transform = "rotate(90deg)";
+      moreInfo.style.display = "block";
+      moreInfo.style.opacity = "1";
+    } else {
+      showMoreInfo.classList.add("chevron-hz");
+      profileImage.style.display = "block";
+      profileImage.style.opacity = "1";
+      profileImage.style.visibility = "visible";
+      chevron.style.transform = "rotate(0deg)";
+      moreInfo.style.display = "none";
+      moreInfo.style.opacity = "0";
+    }
+  };
+</script>

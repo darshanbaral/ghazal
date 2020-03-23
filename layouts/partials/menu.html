@@ -1,0 +1,10 @@
+<div class="slide-menu collapsed" style="width: 0;  overflow: hidden;">
+  <h1>
+    <a href="/" style="white-space: nowrap;">Home</a>
+  </h1>
+  {{ range .Site.Sections }}
+  <h1>
+    <a href="{{ .Permalink }}" style="white-space: nowrap;">{{ .Title }}</a>
+  </h1>
+  {{ end }}
+</div>

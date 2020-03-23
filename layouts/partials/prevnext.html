@@ -1,0 +1,29 @@
+<div style="display: flex; flex-direction: row; justify-content: space-around">
+  {{- if .PrevInSection }}
+  <div>
+    <a
+      class="previous-link active"
+      href="{{ .PrevInSection.Permalink | relURL }}"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="{{ .PrevInSection.Title }}"
+      >Previous</a
+    >
+  </div>
+  {{- else }}
+  <div class="previous-link disabled">Previous</div>
+  {{- end }} {{- if .NextInSection }}
+  <div>
+    <a
+      class="next-link active"
+      href="{{ .NextInSection.Permalink | relURL }}"
+      data-toggle="tooltip"
+      data-placement="top"
+      title="{{ .NextInSection.Title }}"
+      >Next</a
+    >
+  </div>
+  {{- else }}
+  <div class="next-link disabled">Next</div>
+  {{- end }}
+</div>
