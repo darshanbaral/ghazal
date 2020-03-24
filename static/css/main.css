@@ -41,7 +41,7 @@ pre {
   border-radius: 5px;
   font-size: 0.85em;
   background-color: var(--bgAltColor) !important;
-  overflow: scroll;
+  overflow: auto;
 }
 
 header,
