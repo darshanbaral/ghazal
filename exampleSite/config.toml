@@ -26,3 +26,4 @@ disableKinds = ["taxonomy", "taxonomyTerm"]
         github = "#"
         twitter = "#"
         linkedin = "#"
+        email= "#"
