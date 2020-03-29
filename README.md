@@ -2,6 +2,11 @@
 
 The ghazal Theme is a light weight responsive blog theme.
 
+## Features
+* Responsive
+* Keyboard navigation for contents using left and right keys
+* No external CSS frameworks
+
 ## Live Demo
 [Click here](https://ghazaldemo.netlify.com/) for live demo.
 
@@ -16,7 +21,7 @@ For more information read the official [setup guide](//gohugo.io/overview/instal
 
 ## Getting started
 
-After installing the aafu Theme successfully, modify the `config.toml` as you wish to generate your online resume.
+After installing the ghazal Theme successfully, modify the `config.toml` as you wish to generate your online resume.
 
 ### The config file
 
