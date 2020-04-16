@@ -17,7 +17,7 @@
         >{{- dateFormat .Site.Params.theme.dateFormat .Date }}</time
       > &middot; {{.Site.Params.author }}</span
     >
-    <p style="margin: 0; font-size: 0.8em;">{{ substr .Summary 0 125 }}...</p>
+    <p style="margin: 0; font-size: 0.8em;">{{ substr .Summary 0 125 | plainify }}...</p>
   </div>
   {{ end }}
 </div>
