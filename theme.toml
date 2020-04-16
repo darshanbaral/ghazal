@@ -8,7 +8,7 @@ description = "lightweight hugo theme for personal blogs"
 homepage = "https://github.com/darshanbaral/ghazal"
 tags = ["blog", "personal"]
 features = ["light weight", "blog", "responsive"]
-min_version = "0.65"
+min_version = "0.65.0"
 
 [author]
   name = "Darshan Baral"
