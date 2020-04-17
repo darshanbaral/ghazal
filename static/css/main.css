@@ -245,7 +245,7 @@ li.page-item:nth-child(6) {
 
 .fa-chevron-right:hover {
   animation: none;
-  transition: all 0.5s;
+  transition: all 0.8s;
 }
 
 .show-more-info {
