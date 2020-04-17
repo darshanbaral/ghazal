@@ -8,7 +8,7 @@ The ghazal Theme is a light weight responsive blog theme.
 * No external CSS frameworks
 
 ## Live Demo
-[Click here](https://ghazaldemo.netlify.com/) for live demo.
+[Click here](https://ghazaldemo.netlify.app/) for live demo. [![Netlify Status](https://api.netlify.com/api/v1/badges/bb480c02-843d-439e-a570-a0ab813f8eff/deploy-status)](https://app.netlify.com/sites/ghazaldemo/deploys)
 
 ## Installation
 
