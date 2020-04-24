@@ -7,18 +7,48 @@
 <div>
   {{ range (.Paginator .Site.Params.theme.paginateNum).Pages }}
   <div
-    style="border: solid 1px; margin: 30px 0; padding: 10px; border-radius: 5px; background-color: var(--bgAltColor);"
+    style="
+      border: solid 1px;
+      margin: 30px 0;
+      padding: 10px;
+      border-radius: 5px;
+      background-color: var(--bgAltColor);
+    "
   >
     <a href="{{ .Permalink | relURL }}">
       <h2 style="margin: 0; font-size: 1.2em;">{{ .Title -}}</h2>
     </a>
     <span style="font-size: 0.65em; font-style: italic;"
-      ><time
-        >{{- dateFormat .Site.Params.theme.dateFormat .Date }}</time
-      > &middot; {{.Site.Params.author }}</span
+      ><time>{{- dateFormat .Site.Params.theme.dateFormat .Date }}</time>
+      &middot; {{.Site.Params.author }}</span
     >
-    <p style="margin: 0; font-size: 0.8em;">{{ substr .Summary 0 125 | plainify }}...</p>
+    <p style="margin: 0; font-size: 0.8em;">
+      {{ .Summary | plainify | truncate 180 }}
+    </p>
   </div>
   {{ end }}
 </div>
+<script>
+  document.onkeydown = function (e) {
+    const thisPage = document.querySelector(".page-item.active");
+    if (thisPage) {
+      switch (e.keyCode) {
+        case 37:
+          //left key
+          let previousPage = thisPage.previousElementSibling.querySelector("a");
+          if (previousPage) {
+            previousPage.click();
+          }
+          break;
+        case 39:
+          //right key
+          let nextPage = thisPage.nextElementSibling.querySelector("a");
+          if (nextPage) {
+            nextPage.click();
+          }
+          break;
+      }
+    }
+  };
+</script>
 {{ end }}
