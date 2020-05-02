@@ -8,6 +8,9 @@
   <div class="sharing-icons">
     {{ partial "share.html" .}}
   </div>
+  <div class="metadata">
+    {{ partial "metadata" . }}
+  </div>
 </div>
 <div style="margin-bottom: 3.5em; font-style: italic; font-size: 0.9em;">by {{ .Site.Params.author }} &middot;
   <time>{{ dateFormat .Site.Params.theme.dateFormat .Date }}</time></div>

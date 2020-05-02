@@ -1,7 +1,6 @@
 {{ $url := printf "%s" .URL | absLangURL }}
 
-<div style="display: flex; flex-direction: row; justify-content: space-between; width: 165px;">
-  
+<div style="display: flex; flex-direction: row;">
   <!-- Sharingbutton Facebook -->
   <a
     class="sharing-icon"
@@ -11,9 +10,9 @@
     aria-label="share on facebook"
     title="share on facebook"
   >
-    <div style="width: 40px; height: 40px;">
+    <i>
       {{ partial "icons/facebook.html" . }}
-    </div>
+    </i>
   </a>
 
   <!-- Sharingbutton Twitter -->
@@ -25,9 +24,9 @@
     aria-label="share on twitter"
     title="share on twitter"
   >
-    <div style="width: 40px; height: 40px;">
+    <i>
       {{ partial "icons/twitter.html" . }}
-    </div>
+    </i>
   </a>
 
   <!-- Sharingbutton E-Mail -->
@@ -39,8 +38,8 @@
     aria-label="share by email"
     title="share by email"
   >
-    <div style="width: 40px; height: 40px;">
+    <i>
       {{ partial "icons/email.html" . }}
-    </div>
+    </i>
   </a>
 </div>

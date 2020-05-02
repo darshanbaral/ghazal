@@ -1,12 +1,24 @@
 <footer style="display: flex; flex-direction: column; margin-top: 0.5em;">
-  {{ if eq .Kind "page" }} {{ partial "prevnext.html" . }} {{ end }}
-  {{ if eq  .Kind "section" }}
+  {{ if eq .Kind "page" }}
+  {{ partial "prevnext.html" . }}
+  {{ end }} {{ if eq .Kind "section" }}
   <div>
     {{ template "_internal/pagination.html" . }}
   </div>
   {{ end }}
-  <div style="padding-top: 10px; border-top: solid 1px; margin: 5px 0; font-size: 0.8em;">
-    {{ .Site.Params.footer }} <a href="https://github.com/darshanbaral/ghazal">ghazal</a> by
-    <a href="https://www.darshanbaral.com/">darshan</a>.
+  <div
+    style="
+      padding: 30px 5px;
+      font-size: 0.8em;
+      background-color: var(--bgDarker);
+      box-shadow: 0px 0px 2px 2px black;
+      text-align: center;
+    "
+  >
+    <p style="margin: 0 0 5px 0;">{{ .Site.Params.footer }}</p>
+    <p style="margin: 0;">
+      <a href="https://github.com/darshanbaral/ghazal">ghazal</a> by
+      <a href="https://www.darshanbaral.com/">darshan</a>.
+    </p>
   </div>
 </footer>

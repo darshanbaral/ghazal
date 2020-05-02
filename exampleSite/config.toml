@@ -2,8 +2,6 @@ baseURL = "http://www.example.com/"
 languageCode = "en"
 theme = "ghazal"
 
-disableKinds = ["taxonomy", "taxonomyTerm"]
-
 [outputs]
   home = ["HTML"]
   page = ["HTML"]

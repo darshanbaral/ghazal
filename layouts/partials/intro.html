@@ -1,7 +1,5 @@
 <div
   style="
-    font-size: 2.2em;
-    margin: 0 0 0.5em 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -9,23 +7,25 @@
     justify-content: center;
     color: var(--primaryColor);
     text-align: center;
-    line-height: 1.25em;
+    margin-bottom: 0.5em;
   "
 >
-  {{.Site.Params.title}}
-  <div
+  <h1 style="margin: 0; font-size: 1.7em;">
+    {{.Site.Params.title}}
+  </h1>
+  <i
     style="
-      width: 20px;
-      line-height: 0;
-      padding: 1px 7px;
-      margin-left: 0.35em;
-      border-radius: 7px;
+      font-size: 0.75em;
+      border-radius: 50%;
+      display: inline-flex;
+      padding: 5px;
+      margin: 0 5px;
     "
     class="show-more-info chevron-hz"
     onclick="showInfo()"
   >
     {{ partial "icons/chevron.html" . }}
-  </div>
+  </i>
 </div>
 
 <script>

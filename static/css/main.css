@@ -9,12 +9,6 @@
   --codeColor: #51ef5b;
 }
 
-html,
-body {
-  height: 100%;
-  min-height: 100%;
-}
-
 body {
   position: relative;
   z-index: 10;
@@ -22,12 +16,14 @@ body {
   flex-direction: column;
   padding: 0;
   max-width: 960px;
+  min-height: 100vh;
   margin: auto;
   color: var(--textColor);
   background-color: var(--bgColor);
   font-family: "Mukta", sans-serif;
   font-weight: 300;
   font-size: 1.2em;
+  overflow-y: scroll;
 }
 
 code {
@@ -92,7 +88,15 @@ a {
 
 a:hover {
   color: var(--textColor);
-  text-decoration: underline;
+}
+
+.metadata-items::before {
+  content: "#";
+}
+
+svg {
+  width: 1em;
+  height: 1em;
 }
 
 blockquote {
@@ -121,17 +125,34 @@ tbody {
   justify-content: center;
   align-items: center;
   color: var(--primaryColor);
-}
-
-.hamburger-cross:hover {
-  color: var(--textColor);
   cursor: pointer;
 }
 
 .hamburger,
 .cross {
-  width: 40px;
-  height: 40px;
+  display: inline-flex;
+  border-radius: 50%;
+  position: absolute;
+  padding: 12px;
+}
+
+.hamburger:hover,
+.cross:hover,
+.social-icons:hover {
+  background-color: var(--bgLighter);
+}
+
+.sharing-icon > i {
+  display: inline-flex;
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 1.2em;
+  margin: 0 5px;
+}
+
+.sharing-icon > i:hover {
+  background-color: var(--bgLighter);
+  color: var(--primaryColor);
 }
 
 .slide-menu {
@@ -149,6 +170,9 @@ tbody {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.slide-menu > h1 {
+  font-size: 1.5em;
 }
 
 ul.pagination {
@@ -200,10 +224,6 @@ li.page-item:nth-child(6) {
 
 .breadcrumb-link:hover {
   text-decoration: underline;
-}
-
-.sharing-icon:hover {
-  color: white;
 }
 
 .next-link,

@@ -1,0 +1,19 @@
+<div style="display: flex; flex-direction: column;">
+
+    {{ $params := .Params }}
+    {{ range $name, $value := .Site.Taxonomies }}
+    {{ if index $params $name }}
+    <p style="margin: 2px 0;">
+      {{ range index $params $name }}
+      <a
+        class="metadata-items"
+        href="{{ $name | relURL }}/{{ . | urlize }}"
+        title="{{ $name }}"
+        style="margin-right: 0.5em; text-decoration: underline; font-size: 0.8em;"
+      >
+        {{- . -}}
+      </a>
+      {{ end }}
+    </p>
+    {{ end }} {{ end }}
+  </div>

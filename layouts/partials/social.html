@@ -1,7 +1,25 @@
-<div style="display: flex; justify-content: center; align-items: center; margin-top: 1em;">
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1em;
+  "
+>
   {{ range $key, $val := .Site.Params.social }}
-  <div style="width: 40px; height: 40px; margin: 0 0.5em;">
-    <a href="{{ $val }}">{{ partial (print "icons/" $key ".html") . }}</a>
-  </div>
+
+  <a href="{{ $val }}">
+    <i
+      class="social-icons"
+      style="
+        margin: 0 5px;
+        display: inline-flex;
+        padding: 10px;
+        border-radius: 50%;
+      "
+      >{{ partial (print "icons/" $key ".html") . }}</i
+    ></a
+  >
+
   {{ end }}
 </div>
