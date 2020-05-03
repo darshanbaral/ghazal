@@ -217,11 +217,6 @@ li.page-item:nth-child(6) {
   border-right: 1px solid var(--primaryColor);
 }
 
-.breadcrumb {
-  line-height: 0.85em;
-  text-align: right;
-}
-
 .breadcrumb-link:hover {
   text-decoration: underline;
 }
