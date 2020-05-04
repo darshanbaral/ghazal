@@ -70,15 +70,19 @@ h6 {
 }
 
 h1 {
-  font-size: 2.2em;
-}
-
-h2 {
   font-size: 1.8em;
 }
 
+h2 {
+  font-size: 1.6em;
+}
+
 h3 {
-  font-size: 1.5em;
+  font-size: 1.4em;
+}
+
+h4 {
+  font-size: 1.2em;
 }
 
 a {
@@ -136,10 +140,21 @@ tbody {
   padding: 12px;
 }
 
+.social-icons > a {
+  border-radius: 50%;
+  margin: 0 5px;
+  display: flex;
+}
+
 .hamburger:hover,
 .cross:hover,
-.social-icons:hover {
+.social-icon:hover {
   background-color: var(--bgLighter);
+}
+
+.sharing-icon {
+  border-radius: 50%;
+  margin: 0 5px 0 0;
 }
 
 .sharing-icon > i {
@@ -147,12 +162,11 @@ tbody {
   border-radius: 50%;
   padding: 12px;
   font-size: 1.2em;
-  margin: 0 5px;
 }
 
 .sharing-icon > i:hover {
   background-color: var(--bgLighter);
-  color: var(--primaryColor);
+  color: var(--textColor);
 }
 
 .slide-menu {
