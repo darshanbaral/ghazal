@@ -19,54 +19,33 @@
   </i>
 </div>
 <script>
-  let currentX, currentY;
-  let initialHeaderShadow = document.querySelector("header").style.boxShadow;
+  const htmlDoc = document.querySelector("html");
+  const scrollBarWidth = window.innerWidth - htmlDoc.clientWidth;
 
-  const showMenu = (menu, hamBurger, cross, main, footer) => {
+  const showMenu = (menu, hamBurger, cross) => {
+    htmlDoc.style.overflowY = "hidden";
+    htmlDoc.style.marginRight = scrollBarWidth + "px";
     hamBurger.style.visibility = "hidden";
     cross.style.visibility = "visible";
-    currentX = window.scrollX;
-    currentY = window.scrollY;
     menu.classList.remove("collapsed");
-    menu.style.width = "100%";
-    main.style.display = "none";
-    footer ? (footer.style.display = "none") : undefined;
+    menu.style.top = "0";
   };
 
-  const hideMenu = (
-    menu,
-    hamBurger,
-    cross,
-    main,
-    footer,
-    currentX,
-    currentY
-  ) => {
+  const hideMenu = (menu, hamBurger, cross) => {
+    htmlDoc.style.overflowY = "scroll";
+    htmlDoc.style.marginRight = "0";
     hamBurger.style.visibility = "visible";
     cross.style.visibility = "hidden";
     menu.classList.add("collapsed");
-    menu.style.width = "0px";
-    main.style.display = "block";
-    footer ? (footer.style.display = "block") : undefined;
-    window.scrollTo(currentX, currentY);
+    menu.style.top = "-100vh";
   };
 
   const myFunction = () => {
     const menu = document.querySelector(".slide-menu");
     const hamBurger = document.querySelector(".hamburger");
     const cross = document.querySelector(".cross");
-    const main = document.body.querySelector("main");
-    const footer = document.body.querySelector("footer");
     menu.classList.contains("collapsed")
-      ? showMenu(menu, hamBurger, cross, main, footer)
-      : hideMenu(
-          menu,
-          hamBurger,
-          cross,
-          main,
-          footer,
-          currentX,
-          currentY
-        );
+      ? showMenu(menu, hamBurger, cross)
+      : hideMenu(menu, hamBurger, cross);
   };
 </script>

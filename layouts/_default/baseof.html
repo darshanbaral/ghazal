@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="{{ .Site.LanguageCode }}">
   {{- partial "head.html" . -}}
-  <body style="padding: 0 8px;">
+  <body style="min-height: 100vh;">
     {{- partial "header.html" . -}}
     <main id="content" {{if not .IsHome }} style="margin-top: 80px;" {{ end }}>
       {{- block "main" . }}{{- end }}
     </main>
-    {{ if not .IsHome }}
-    {{- partial "footer.html" . -}}
-    {{ end }}
+    {{ if not .IsHome }} {{- partial "footer.html" . -}} {{ end }}
   </body>
 </html>
