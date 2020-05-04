@@ -1,8 +1,8 @@
 <div
   class="hamburger-cross"
   style="
-    position: fixed;
-    top: 15px;
+    position: absolute;
+    top: 5px;
     z-index: 50;
     width: 50px;
     height: 50px;
@@ -20,6 +20,7 @@
 </div>
 <script>
   let currentX, currentY;
+  let initialHeaderShadow = document.querySelector("header").style.boxShadow;
 
   const showMenu = (menu, hamBurger, cross, main, footer) => {
     hamBurger.style.visibility = "hidden";
@@ -58,6 +59,14 @@
     const footer = document.body.querySelector("footer");
     menu.classList.contains("collapsed")
       ? showMenu(menu, hamBurger, cross, main, footer)
-      : hideMenu(menu, hamBurger, cross, main, footer, currentX, currentY);
+      : hideMenu(
+          menu,
+          hamBurger,
+          cross,
+          main,
+          footer,
+          currentX,
+          currentY
+        );
   };
 </script>

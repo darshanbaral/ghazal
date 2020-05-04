@@ -3,7 +3,6 @@
   {{- partial "head.html" . -}}
   <body style="padding: 0 8px;">
     {{- partial "header.html" . -}}
-    {{- partial "menu.html" . -}}
     <main id="content" {{if not .IsHome }} style="margin-top: 80px;" {{ end }}>
       {{- block "main" . }}{{- end }}
     </main>

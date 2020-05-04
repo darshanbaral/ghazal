@@ -45,16 +45,6 @@ footer {
   flex: none;
 }
 
-header {
-  padding-bottom: 15px;
-}
-
-header:after {
-  content: "";
-  display: block;
-  border-bottom: 1px solid var(--textColor);
-}
-
 main {
   flex: 1 1 0%;
 }
@@ -188,7 +178,6 @@ tbody {
 .slide-menu > h1 {
   font-size: 1.5em;
 }
-
 ul.pagination {
   display: flex;
   flex-direction: row;

@@ -1,13 +1,13 @@
 {{ define "main" }}
 
-<h1 style="margin: 0; text-decoration: underline;">
+<h1 style="margin: 0 0 0.5em 0;">
   {{- .Title -}}
 </h1>
 
 {{ range (.Paginator .Site.Params.theme.paginateNum).Pages }}
 <div
   class="list-sections"
-  style="border-bottom: dashed 1px; margin: 0; padding: 12px 0;"
+  style="border-top: dashed 1px; margin: 0; padding: 12px 0;"
 >
   <span style="font-size: 0.65em; font-style: italic;"
     ><time>{{- dateFormat .Site.Params.theme.dateFormat .Date }}</time> &middot;
