@@ -294,5 +294,7 @@ li.page-item:nth-child(6) {
 }
 
 .content img {
-  width: 100%;
+  max-width: 95%;
+  display: block;
+  margin: 1em auto;
 }
