@@ -37,6 +37,7 @@ header {
   position: fixed;
   top: 0;
   z-index: 30;
+  transition: all 0.3s;
 }
 header,
 footer {

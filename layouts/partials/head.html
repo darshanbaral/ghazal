@@ -8,20 +8,17 @@
   <meta name="description" content="{{ .Site.Params.description }}" />
   <meta name="author" content="{{ .Site.Params.author }}" />
 
-  <meta
-    property="og:url"
-    content="{{ .Permalink }}"
-  />
+  <meta property="og:url" content="{{ .Permalink }}" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="{{ .Site.Params.title }}{{ if .Title }} - {{ .Title }} {{ end }}" />
-  <meta property="og:description" content="{{ .Site.Params.description }}" />
   <meta
-    property="og:image"
-    content="{{ `images/profile.jpg` | absURL }}"
+    property="og:title"
+    content="{{ .Site.Params.title }}{{ if .Title }} - {{ .Title }} {{ end }}"
   />
+  <meta property="og:description" content="{{ .Site.Params.description }}" />
+  <meta property="og:image" content="{{ `images/profile.jpg` | absURL }}" />
 
   {{ with .OutputFormats.Get "rss" -}}
-    {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
+  {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
   {{ end -}}
 
   <link rel="stylesheet" href="{{ `/css/main.css` | relURL }}" />
@@ -35,4 +32,33 @@
       font-size: {{ .Site.Params.theme.fontSize | safeCSS }};
     }
   </style>
+
+  <script>
+    let initialY;
+    window.onload = function () {
+      initialY = window.scrollY;
+    };
+
+    window.addEventListener("scroll", () => {
+      let currentY = window.scrollY;
+      let header = document.querySelector("header");
+
+      if (
+        document.body.offsetHeight - (window.innerHeight + window.pageYOffset) < 10
+      ) {
+        initialY = currentY;
+        header.style.top = "0";
+      }
+
+      if (currentY - initialY > 60) {
+        initialY = currentY;
+        header.style.top = "-58px";
+      }
+
+      if (currentY - initialY < -5) {
+        initialY = currentY;
+        header.style.top = "0";
+      } 
+    });
+  </script>
 </head>
