@@ -7,51 +7,24 @@
     justify-content: center;
     color: var(--primaryColor);
     text-align: center;
-    margin-bottom: 0.5em;
+    margin-bottom: 1em;
   "
 >
   <h1 style="margin: 0; font-size: 1.7em;">
     {{.Site.Params.title}}
   </h1>
-  <i
-    style="
-      font-size: 0.75em;
-      border-radius: 50%;
-      display: inline-flex;
-      padding: 5px;
-      margin: 0 5px;
-    "
-    class="show-more-info chevron-hz"
-    onclick="showInfo()"
+  <a href="{{ `about` | relURL }}" style="display: inline-flex;"
+    ><i
+      style="
+        font-size: 0.75em;
+        border-radius: 50%;
+        display: inline-flex;
+        padding: 5px;
+        margin: 0 5px;
+      "
+      class="show-more-info chevron-hz"
+    >
+      {{ partial "icons/chevron.html" . }}
+    </i></a
   >
-    {{ partial "icons/chevron.html" . }}
-  </i>
 </div>
-
-<script>
-  const showInfo = () => {
-    const showMoreInfo = document.querySelector(".show-more-info");
-    const profileImage = document.querySelector(".profile-image");
-    const chevron = document.querySelector(".fa-chevron-right");
-    const moreInfo = document.querySelector(".more-info");
-
-    if (showMoreInfo.classList.contains("chevron-hz")) {
-      showMoreInfo.classList.remove("chevron-hz");
-      chevron.style.transform = "rotate(90deg)";
-      profileImage.style.opacity = "0";
-      profileImage.style.width = "0";
-      profileImage.style.transform = "rotate(180deg)";
-      moreInfo.style.visibility = "visible";
-      moreInfo.style.opacity = "1";
-    } else {
-      showMoreInfo.classList.add("chevron-hz");
-      chevron.style.transform = "none";
-      profileImage.style.visibility = "visible";
-      profileImage.style.width = "100%";
-      profileImage.style.transform = "none";
-      profileImage.style.opacity = "1";
-      moreInfo.style.visibility = "hidden";
-      moreInfo.style.opacity = "0";
-    }
-  };
-</script>

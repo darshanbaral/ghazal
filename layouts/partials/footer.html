@@ -1,24 +1,84 @@
 <footer style="display: flex; flex-direction: column; margin-top: 0.5em;">
-  {{ if eq .Kind "page" }}
-  {{ partial "prevnext.html" . }}
-  {{ end }} {{ if eq .Kind "section" }}
+  {{ if eq .Kind "page" }} {{ partial "prevnext.html" . }} {{ end }}
+  {{ if eq .Kind "section" }}
   <div>
     {{ template "_internal/pagination.html" . }}
   </div>
   {{ end }}
   <div
     style="
-      padding: 10px 5px;
       font-size: 0.8em;
       background-color: var(--bgDarker);
       box-shadow: 0px 0px 2px 2px black;
-      text-align: center;
     "
   >
-    <p style="margin: 0 0 5px 0;">{{ .Site.Params.footer }}</p>
-    <p style="margin: 0;">
-      <a href="https://github.com/darshanbaral/ghazal">ghazal</a> by
-      <a href="https://www.darshanbaral.com/">darshan</a>.
-    </p>
+    <div style="display: flex; flex-wrap: wrap;">
+      <div
+        class="footer-about"
+        style="
+          padding: 0 15px;
+          max-width: 400px;
+          flex-basis: 33%;
+          box-sizing: border-box;
+        "
+      >
+        <h3>About Me</h3>
+        <img
+          style="max-width: 150px; border-radius: 50%; display: block; margin: auto;"
+          src="{{ .Site.Params.profileImage | relURL }}"
+        />
+        <p>
+          {{ .Site.Params.shortAbout }}
+          <a href="{{ `about` | relURL }}">More</a>
+        </p>
+      </div>
+      <div
+        class="footer-social"
+        style="
+          padding: 0 15px;
+          max-width: 400px;
+          flex-basis: 33%;
+          box-sizing: border-box;
+        "
+      >
+        <h3>Contact Me</h3>
+        <ul style="padding: 0;">
+          {{ range $key, $val := .Site.Params.social }}
+          <li style="list-style: none;">
+            <a href="{{ $val }}" style="font-variant: small-caps;"
+              >{{ partial (print "icons/" $key) . }}{{ $key }}</a
+            >
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+      <div
+        class="footer-recent"
+        style="
+          padding: 0 15px;
+          max-width: 400px;
+          flex-basis: 33%;
+          flex-grow: 1;
+          box-sizing: border-box;
+        "
+      >
+        <h3>Recent Posts</h3>
+        <ul style="padding: 0;">
+          {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 5}}
+          <li style="list-style: none;">
+            <a href="{{ .Permalink }}">{{ .Title | truncate 25 }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    <hr style="width: 50%; border-color: var(--textColor);">
+    <div style="text-align: center;">
+      <p style="margin: 0 0 5px 0;">{{ .Site.Params.footer }}</p>
+      <p style="margin: 0;">
+        <a href="https://github.com/darshanbaral/ghazal">ghazal</a> by
+        <a href="https://www.darshanbaral.com/">darshan</a>.
+      </p>
+    </div>
   </div>
 </footer>

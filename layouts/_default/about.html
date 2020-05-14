@@ -1,0 +1,18 @@
+{{ define "main" }}
+<img
+  src="{{ .Params.profileImage }}"
+  style="
+    display: block;
+    margin: 1em auto 0 auto;
+    max-width: 300px;
+    border-radius: 50%;
+  "
+/>
+{{ partial "social" . }}
+<h1 style="border-bottom: solid 3px;">
+  {{ .Params.prefix }} {{ .Params.name }}, {{ .Params.suffix }}
+</h1>
+{{ .Content }}
+{{ partial "about/education" . }}
+{{ partial "about/publications" . }}
+{{ end }}
