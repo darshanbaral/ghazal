@@ -4,7 +4,7 @@
 <table style="width: 100%;">
   <thead>
     <tr>
-      <th style="max-width: 50px;">Date</th>
+      <th>Date</th>
       <th>Title</th>
       <th>Section</th>
     </tr>
@@ -12,7 +12,7 @@
   <tbody>
     {{ range $paginator.Pages }}
     <tr>
-      <td style="max-width: 50px;">
+      <td>
         <time>{{- dateFormat .Site.Params.theme.dateFormat .Date }}</time>
       </td>
       <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
