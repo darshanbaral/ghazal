@@ -1,4 +1,23 @@
 <footer style="display: flex; flex-direction: column; margin-top: 0.5em;">
+  <div style="position: fixed; bottom: 60px; margin: auto; width: 95%; max-width: 960px;">
+  <i
+    class="to-top-button"
+    onclick="toTop()"
+    style="
+      display: none;
+      transform: rotate(-90deg);
+      background-color: var(--bgLighter);
+      border-radius: 50%;
+      border: solid 2px var(--primaryColor);
+      padding: 10px;
+      position: absolute;
+      cursor: pointer;
+      right: 0;
+      font-size: 1.25em;
+    "
+    >{{ partial "icons/chevron" . }}</i
+  ></div>
+
   {{ if eq .Kind "page" }} {{ partial "prevnext.html" . }} {{ end }}
   {{ if eq .Kind "section" }}
   <div>
@@ -24,7 +43,7 @@
       >
         <h3>About Me</h3>
         <img
-          style="max-width: 150px; border-radius: 50%; display: block; margin: auto;"
+          style="max-width: 100px; border-radius: 50%; display: block;"
           src="{{ .Site.Params.profileImage | relURL }}"
         />
         <p>
@@ -64,7 +83,7 @@
       >
         <h3>Recent Posts</h3>
         <ul style="padding: 0;">
-          {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 5}}
+          {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 5 }}
           <li style="list-style: none;">
             <a href="{{ .Permalink }}">{{ .Title | truncate 25 }}</a>
           </li>
@@ -72,7 +91,7 @@
         </ul>
       </div>
     </div>
-    <hr style="width: 50%; border-color: var(--textColor);">
+    <hr style="width: 50%; border-color: var(--textColor);" />
     <div style="text-align: center;">
       <p style="margin: 0 0 5px 0;">{{ .Site.Params.footer }}</p>
       <p style="margin: 0;">
@@ -82,3 +101,8 @@
     </div>
   </div>
 </footer>
+<script>
+  toTop = () => {
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+</script>

@@ -250,12 +250,12 @@ li.page-item:nth-child(6) {
   border: solid 1px;
   border-color: var(--inactiveColor);
 }
-.fa-chevron-right {
+.show-more-info > svg {
   animation: blinkingText 1s infinite;
   transition: all 0.5s;
   color: var(--bgColor);
 }
-.fa-chevron-right:hover {
+.show-more-info > svg:hover {
   animation: none;
   transition: all 0.8s;
 }

@@ -42,6 +42,9 @@
     window.addEventListener("scroll", () => {
       let currentY = window.scrollY;
       let header = document.querySelector("header");
+      let toTop = document.querySelector(".to-top-button");
+
+      toTop.style.display = currentY < 500 ? "none" : "inline-flex";
 
       if (
         document.body.offsetHeight - (window.innerHeight + window.pageYOffset) < 10
@@ -59,7 +62,7 @@
       if (currentY - initialY < -5 || currentY < 60) {
         initialY = currentY;
         header.style.top = "0";
-      } 
+      }
     });
   </script>
 </head>
