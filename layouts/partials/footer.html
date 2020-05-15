@@ -1,4 +1,4 @@
-<footer style="display: flex; flex-direction: column; margin-top: 0.5em;">
+<footer style="display: flex; flex-direction: column; margin-top: 2em;">
   <div
     style="
       position: fixed;
@@ -51,7 +51,7 @@
           box-sizing: border-box;
         "
       >
-        <h3>Contact Me</h3>
+        <h3>Contact</h3>
         <ul style="padding: 0;">
           {{ range $key, $val := .Site.Params.social }}
           <li style="list-style: none;">
@@ -72,7 +72,7 @@
           box-sizing: border-box;
         "
       >
-        <h3>Site Sections</h3>
+        <h3>Sections</h3>
         <ul style="padding: 0;">
           {{ range .Site.Sections }}
           <li style="list-style: none;">
@@ -92,8 +92,8 @@
           box-sizing: border-box;
         "
       >
-        <h3>Recent Posts</h3>
-        <ol style="padding: 0;">
+        <h3>Recent</h3>
+        <ol style="padding-left: 0.75em;">
           {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 5 }}
           <li>
             <a href="{{ .Permalink }}">{{ .Title | truncate 25 }}</a>

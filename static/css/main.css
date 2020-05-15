@@ -209,10 +209,10 @@ li.page-item.active a {
   color: var(--bgColor);
   font-weight: 700;
 }
-li.page-item:nth-child(1) {
+li.page-item:first-child {
   border-radius: 10px 0 0 10px;
 }
-li.page-item:nth-child(6) {
+li.page-item:last-child {
   border-radius: 0 10px 10px 0;
   border-right: 1px solid var(--primaryColor);
 }

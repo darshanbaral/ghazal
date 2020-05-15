@@ -1,6 +1,7 @@
 ---
 title: "About Me"
 icon: "portrait"
+hideFromArchive: true
 weight: 10
 name: "ASasd LADSK"
 prefix: ""
