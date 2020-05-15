@@ -16,7 +16,7 @@ theme = "ghazal"
     profileImage = "https://i.stack.imgur.com/oI2SB.jpg?s=328&g=1"
 
     [params.theme]
-        fontSize = "20px"
+        fontSize = "16px"
         dateFormat = "2006/01/02"
         paginateNum = 5
 

@@ -72,7 +72,7 @@
           box-sizing: border-box;
         "
       >
-        <h3>Sections</h3>
+        <h3>Site Sections</h3>
         <ul style="padding: 0;">
           {{ range .Site.Sections }}
           <li style="list-style: none;">
@@ -93,13 +93,13 @@
         "
       >
         <h3>Recent Posts</h3>
-        <ul style="padding: 0;">
+        <ol style="padding: 0;">
           {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 5 }}
-          <li style="list-style: none;">
+          <li>
             <a href="{{ .Permalink }}">{{ .Title | truncate 25 }}</a>
           </li>
           {{ end }}
-        </ul>
+        </ol>
       </div>
     </div>
     <hr style="width: 50%; border-color: var(--textColor);" />
