@@ -1,24 +1,119 @@
 <footer style="display: flex; flex-direction: column; margin-top: 0.5em;">
-  {{ if eq .Kind "page" }}
-  {{ partial "prevnext.html" . }}
-  {{ end }} {{ if eq .Kind "section" }}
+  <div
+    style="
+      position: fixed;
+      bottom: 60px;
+      margin: auto;
+      width: 95%;
+      max-width: 960px;
+    "
+  >
+    <i
+      class="to-top-button"
+      onclick="toTop()"
+      style="
+        display: none;
+        transform: rotate(-90deg);
+        background-color: var(--bgLighter);
+        border-radius: 50%;
+        border: solid 2px var(--primaryColor);
+        padding: 10px;
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+        font-size: 1.25em;
+      "
+      >{{ partial "icons/chevron" . }}</i
+    >
+  </div>
+
+  {{ if eq .Kind "page" }} {{ partial "prevnext.html" . }}
+  {{ end }}
+  {{ if eq .Kind "section" }}
   <div>
     {{ template "_internal/pagination.html" . }}
   </div>
   {{ end }}
   <div
     style="
-      padding: 10px 5px;
       font-size: 0.8em;
       background-color: var(--bgDarker);
       box-shadow: 0px 0px 2px 2px black;
-      text-align: center;
     "
   >
-    <p style="margin: 0 0 5px 0;">{{ .Site.Params.footer }}</p>
-    <p style="margin: 0;">
-      <a href="https://github.com/darshanbaral/ghazal">ghazal</a> by
-      <a href="https://www.darshanbaral.com/">darshan</a>.
-    </p>
+    <div style="display: flex; flex-wrap: wrap;">
+      <div
+        class="footer-social"
+        style="
+          padding: 0 15px;
+          max-width: 400px;
+          flex-basis: 33%;
+          box-sizing: border-box;
+        "
+      >
+        <h3>Contact Me</h3>
+        <ul style="padding: 0;">
+          {{ range $key, $val := .Site.Params.social }}
+          <li style="list-style: none;">
+            <a href="{{ $val }}" style="font-variant: small-caps;"
+              >{{ partial (print "icons/" $key) . }}{{ $key }}</a
+            >
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div
+        class="footer-sections"
+        style="
+          padding: 0 15px;
+          max-width: 400px;
+          flex-basis: 33%;
+          box-sizing: border-box;
+        "
+      >
+        <h3>Sections</h3>
+        <ul style="padding: 0;">
+          {{ range .Site.Sections }}
+          <li style="list-style: none;">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+
+      <div
+        class="footer-recent"
+        style="
+          padding: 0 15px;
+          max-width: 400px;
+          flex-basis: 33%;
+          flex-grow: 1;
+          box-sizing: border-box;
+        "
+      >
+        <h3>Recent Posts</h3>
+        <ul style="padding: 0;">
+          {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 5 }}
+          <li style="list-style: none;">
+            <a href="{{ .Permalink }}">{{ .Title | truncate 25 }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+    </div>
+    <hr style="width: 50%; border-color: var(--textColor);" />
+    <div style="text-align: center;">
+      <p style="margin: 0 0 5px 0;">{{ .Site.Params.footer }}</p>
+      <p style="margin: 0;">
+        <a href="https://github.com/darshanbaral/ghazal">ghazal</a> by
+        <a href="https://www.darshanbaral.com/">darshan</a>.
+      </p>
+    </div>
   </div>
 </footer>
+<script>
+  toTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+</script>

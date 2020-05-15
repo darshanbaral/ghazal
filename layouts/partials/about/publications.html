@@ -1,0 +1,27 @@
+{{ if .Params.publications }}
+<h2 style="border-bottom: solid 3px; text-transform: uppercase;">
+  <i>{{ partial "icons/book" . }}</i>Publications
+</h2>
+
+{{ range .Params.publications }} {{ range $key, $val := . }}
+<h3 style="font-variant: small-caps;">{{ $key }}</h3>
+<ol>
+  {{ range sort $val "date" "desc" }}
+  <li>
+    <p style="margin: 1em; text-indent: -0.5em;">
+      {{ .date }}. {{ .author | markdownify }}. {{ if .url }}<a
+        href="{{ .url }}"
+        >{{ .title }}</a
+      >{{ else }} <u>{{- .title -}}</u> {{end -}}. {{ .journal }}.
+    </p>
+    {{ if .abstract }}
+    <blockquote style="margin: 0 0 0 1em; font-size: 0.9em;">
+      <strong style="font-variant: small-caps; text-decoration: underline;"
+        >Abstract</strong
+      ><p style="margin: 0;">{{ .abstract }}</p>
+    </blockquote>
+    {{ end }}
+  </li>
+  {{ end }}
+</ol>
+{{ end }} {{ end }} {{ end }}

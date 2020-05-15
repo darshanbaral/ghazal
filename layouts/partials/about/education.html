@@ -1,0 +1,16 @@
+{{ if .Params.education }}
+<h2 style="border-bottom: solid 3px; text-transform: uppercase;">
+  <i>{{ partial "icons/graduationCap" . }}</i>Education
+</h2>
+
+{{ range sort .Params.education "date" "desc" }}
+<p>{{ .date }}. {{ .title }}. {{ .major}}. {{ .institution }}</p>
+{{ if .project }}
+<p style="margin-top: -1em; margin-left: 1em;">
+  {{ .projectTitle}} - {{if .projectURL }}
+  <a href="{{ .projectURL }}">{{ .project }}</a>
+  {{ else }}
+  <u>{{ .project }}</u>
+  {{ end }}
+</p>
+{{ end }} {{ end }} {{ end }}

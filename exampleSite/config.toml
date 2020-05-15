@@ -11,11 +11,11 @@ theme = "ghazal"
     author = "Darshan Baral"
     description = "A hugo theme for personal blogs"
     footer = "2020 Darshan Baral."
-    about = "This is a short intro about me to describe some of the cool things I do."
-    image = "https://i.stack.imgur.com/oI2SB.jpg?s=328&g=1"
+    shortAbout = "This is a short intro about me to describe some of the cool things I do."
+    mainimage = "https://i.stack.imgur.com/oI2SB.jpg?s=328&g=1"
+    profileImage = "https://i.stack.imgur.com/oI2SB.jpg?s=328&g=1"
 
     [params.theme]
-        profileImage = "/images/profile.jpg"
         fontSize = "20px"
         dateFormat = "2006/01/02"
         paginateNum = 5

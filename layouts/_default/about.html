@@ -1,0 +1,30 @@
+{{ define "main" }}
+{{ partial "social" . }}
+<img
+  src="{{ .Params.profileImage }}"
+  style="
+    display: block;
+    margin: 1em auto 0 auto;
+    max-width: 300px;
+    border-radius: 50%;
+  "
+/>
+
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-bottom: solid 3px;
+  "
+>
+  <h1 style="margin: 0.15em 0;">
+    {{ .Params.prefix }} {{ .Params.name }}, {{ .Params.suffix }}
+  </h1>
+  <h2 style="margin: 0.15em 0;">{{ .Params.jobTitle }}</h2>
+  <h3 style="margin: 0.15em 0;">{{ .Params.office }}, {{ .Params.location }}</h3>
+</div>
+{{ .Content }}
+{{ partial "about/education" . }}
+{{ partial "about/publications" . }}
+{{ end }}
