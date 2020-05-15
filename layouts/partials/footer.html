@@ -1,24 +1,34 @@
 <footer style="display: flex; flex-direction: column; margin-top: 0.5em;">
-  <div style="position: fixed; bottom: 60px; margin: auto; width: 95%; max-width: 960px;">
-  <i
-    class="to-top-button"
-    onclick="toTop()"
+  <div
     style="
-      display: none;
-      transform: rotate(-90deg);
-      background-color: var(--bgLighter);
-      border-radius: 50%;
-      border: solid 2px var(--primaryColor);
-      padding: 10px;
-      position: absolute;
-      cursor: pointer;
-      right: 0;
-      font-size: 1.25em;
+      position: fixed;
+      bottom: 60px;
+      margin: auto;
+      width: 95%;
+      max-width: 960px;
     "
-    >{{ partial "icons/chevron" . }}</i
-  ></div>
+  >
+    <i
+      class="to-top-button"
+      onclick="toTop()"
+      style="
+        display: none;
+        transform: rotate(-90deg);
+        background-color: var(--bgLighter);
+        border-radius: 50%;
+        border: solid 2px var(--primaryColor);
+        padding: 10px;
+        position: absolute;
+        cursor: pointer;
+        right: 0;
+        font-size: 1.25em;
+      "
+      >{{ partial "icons/chevron" . }}</i
+    >
+  </div>
 
-  {{ if eq .Kind "page" }} {{ partial "prevnext.html" . }} {{ end }}
+  {{ if eq .Kind "page" }} {{ partial "prevnext.html" . }}
+  {{ end }}
   {{ if eq .Kind "section" }}
   <div>
     {{ template "_internal/pagination.html" . }}
@@ -32,25 +42,6 @@
     "
   >
     <div style="display: flex; flex-wrap: wrap;">
-      <div
-        class="footer-about"
-        style="
-          padding: 0 15px;
-          max-width: 400px;
-          flex-basis: 33%;
-          box-sizing: border-box;
-        "
-      >
-        <h3>About Me</h3>
-        <img
-          style="max-width: 100px; border-radius: 50%; display: block;"
-          src="{{ .Site.Params.profileImage | relURL }}"
-        />
-        <p>
-          {{ .Site.Params.shortAbout }}
-          <a href="{{ `about` | relURL }}">More</a>
-        </p>
-      </div>
       <div
         class="footer-social"
         style="
@@ -71,6 +62,26 @@
           {{ end }}
         </ul>
       </div>
+
+      <div
+        class="footer-sections"
+        style="
+          padding: 0 15px;
+          max-width: 400px;
+          flex-basis: 33%;
+          box-sizing: border-box;
+        "
+      >
+        <h3>Sections</h3>
+        <ul style="padding: 0;">
+          {{ range .Site.Sections }}
+          <li style="list-style: none;">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+          </li>
+          {{ end }}
+        </ul>
+      </div>
+
       <div
         class="footer-recent"
         style="
@@ -103,6 +114,6 @@
 </footer>
 <script>
   toTop = () => {
-    window.scrollTo({top: 0, behavior: 'smooth'});
-  }
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 </script>

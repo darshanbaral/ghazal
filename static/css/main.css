@@ -149,26 +149,22 @@ kbd {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--primaryColor);
   cursor: pointer;
 }
-
 .hamburger,
 .cross {
   display: inline-flex;
   border-radius: 50%;
   position: absolute;
   padding: 12px;
+  background-color: var(--primaryColor);
+  color: var(--bgDarker);
 }
-
 .social-icons > a {
   border-radius: 50%;
   margin: 0 5px;
   display: flex;
 }
-
-.hamburger:hover,
-.cross:hover,
 .social-icon:hover {
   background-color: var(--bgLighter);
 }

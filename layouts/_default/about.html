@@ -1,4 +1,5 @@
 {{ define "main" }}
+{{ partial "social" . }}
 <img
   src="{{ .Params.profileImage }}"
   style="
@@ -8,10 +9,21 @@
     border-radius: 50%;
   "
 />
-{{ partial "social" . }}
-<h1 style="border-bottom: solid 3px;">
-  {{ .Params.prefix }} {{ .Params.name }}, {{ .Params.suffix }}
-</h1>
+
+<div
+  style="
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-bottom: solid 3px;
+  "
+>
+  <h1 style="margin: 0.15em 0;">
+    {{ .Params.prefix }} {{ .Params.name }}, {{ .Params.suffix }}
+  </h1>
+  <h2 style="margin: 0.15em 0;">{{ .Params.jobTitle }}</h2>
+  <h3 style="margin: 0.15em 0;">{{ .Params.office }}, {{ .Params.location }}</h3>
+</div>
 {{ .Content }}
 {{ partial "about/education" . }}
 {{ partial "about/publications" . }}
