@@ -1,0 +1,25 @@
+{{ define "main" }}
+<h1 style="margin: 0 0 0.5em 0;">{{ .Title }}</h1>
+{{$paginator := .Paginate (where .Site.Pages "Kind" "page").ByDate.Reverse 50 }}
+<table style="width: 100%;">
+  <thead>
+    <tr>
+      <th style="max-width: 50px;">Date</th>
+      <th>Title</th>
+      <th>Section</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range $paginator.Pages }}
+    <tr>
+      <td style="max-width: 50px;">
+        <time>{{- dateFormat .Site.Params.theme.dateFormat .Date }}</time>
+      </td>
+      <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
+      <td><a href="{{ .Section | relURL }}">{{ (.Site.GetPage .Section).Title }}</a></td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>
+
+{{ end }}
