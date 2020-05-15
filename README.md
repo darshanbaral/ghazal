@@ -26,3 +26,7 @@ After installing the ghazal Theme successfully, modify the `config.toml` as you 
 ### The config file
 
 You'll find a file called [`config.toml`](https://github.com/darshanbaral/ghazal/blob/master/exampleSite/config.toml). Copy the `config.toml`to the root folder of your Hugo site and customize it per your need.
+
+### `About Me` page
+
+The information for `About Me` page comes from the `_index.md` inside `content/about` (https://github.com/darshanbaral/ghazal/tree/master/exampleSite/content/about). 
