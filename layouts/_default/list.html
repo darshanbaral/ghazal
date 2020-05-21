@@ -1,7 +1,7 @@
 {{ define "main" }}
 
-<h1 style="margin: 0 0 0.5em 0;">
-  {{- .Title -}}
+<h1 style="margin: 0 0 0.5em 0; font-size: 2.5em;">
+  {{ if eq .Kind "taxonomy" }}#{{ end }}{{- .Title -}}
 </h1>
 
 {{ range (.Paginator .Site.Params.theme.paginateNum).Pages }}
@@ -9,14 +9,14 @@
   class="list-sections"
   style="border-top: dashed 1px; margin: 0; padding: 12px 0;"
 >
-  <span style="font-size: 0.65em; font-style: italic;"
+  <span style="font-size: 0.85em; font-style: italic;"
     ><time>{{- dateFormat .Site.Params.theme.dateFormat .Date }}</time> &middot;
     {{.Site.Params.author }}</span
   >
   <a href="{{ .Permalink | relURL }}">
     <h2 style="margin: 0; font-size: 1.2em;">{{ .Title -}}</h2>
   </a>
-  <p style="margin: 0; font-size: 0.8em;">
+  <p style="margin: 0; font-size: 0.9em;">
     {{ .Summary | plainify | truncate 100 }}
   </p>
 </div>

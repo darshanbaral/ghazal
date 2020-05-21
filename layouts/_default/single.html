@@ -2,7 +2,7 @@
 <div
   style="display: flex; flex-direction: column;"
 >
-  <h1 style="margin: 0 0 0.25em 0; font-size: 2em;">
+  <h1 style="margin: 0 0 0.25em 0; font-size: 2.5em;">
     {{- .Title -}}
   </h1>
   <div class="sharing-icons">
@@ -12,8 +12,9 @@
     {{ partial "metadata" . }}
   </div>
 </div>
-<div style="margin-bottom: 3.5em; font-style: italic; font-size: 0.9em;">by {{ .Site.Params.author }} &middot;
-  <time>{{ dateFormat .Site.Params.theme.dateFormat .Date }}</time></div>
+<div style="margin-bottom: 1.5em; font-style: italic; font-size: 0.9em;">by {{ .Site.Params.author }} &middot;
+  <time>{{ dateFormat .Site.Params.theme.dateFormat .Date }}</time>
+</div>
 <div class="content">
   {{ .Content }}
 </div>
