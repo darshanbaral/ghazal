@@ -9,7 +9,7 @@
 >
   {{ range $key, $val := .Site.Params.social }}
 
-  <a href="{{ $val }}">
+  <a href="{{ $val }}" aria-label="{{ $key }}">
     <i
       class="social-icon"
       style="

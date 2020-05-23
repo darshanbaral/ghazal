@@ -27,8 +27,10 @@
     >
   </div>
 
-  {{ if eq .Kind "page" }} {{ partial "prevnext.html" . }}
+  {{ if eq .Kind "page" }}
+  {{ partial "prevnext.html" . }}
   {{ end }}
+
   {{ if eq .Kind "section" }}
   <div>
     {{ template "_internal/pagination.html" . }}
@@ -56,9 +58,13 @@
         <ul style="padding: 0;">
           {{ range $key, $val := .Site.Params.social }}
           <li style="list-style: none;">
-            <a href="{{ $val }}" style="font-variant: small-caps;"
-              >{{ partial (print "icons/" $key) . }}{{ $key }}</a
+            <a
+              href="{{ $val }}"
+              style="font-variant: small-caps;"
+              aria-label="{{ $key }}"
             >
+              {{ partial (print "icons/" $key) . }}{{ $key }}
+            </a>
           </li>
           {{ end }}
         </ul>

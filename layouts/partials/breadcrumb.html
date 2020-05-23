@@ -17,6 +17,7 @@
   <a
     href="{{ if eq .p1 .p2 }}#{{ else }}{{ .p1.Permalink }}{{ end }}"
     class="breadcrumb-link {{ if eq .p1 .p2 }}active{{ end }}"
+    aria-label="{{ if .p1.IsHome }}Home{{ else }}{{ .p1.Title }}{{ end }}"
     style="margin-left: 5px; font-size: 0.9em; color:{{ if eq .p1 .p2 }}var(--primaryHover){{else}}var(--primary){{ end }};"
     >{{- if .p1.IsHome -}}<i>{{- partial "icons/home" . -}}</i>{{- end -}}
   
