@@ -52,6 +52,7 @@ pre {
   border-radius: 5px;
   background-color: var(--bgPre) !important;
   overflow: auto;
+  border: solid 1px var(--textColor);
 }
 h1,
 h2,
@@ -135,7 +136,11 @@ strong {
   text-decoration: none;
 }
 table {
+  text-align: center;
+  text-align: -moz-center;
   border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
 }
 thead {
   border-top: solid 3px var(--textColor);
@@ -148,6 +153,7 @@ th,
 td {
   border: solid 1px var(--textColor);
   padding: 0.25em 0.5em;
+  text-align: left;
 }
 mark {
   background-color: var(--highlight);

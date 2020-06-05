@@ -1,7 +1,7 @@
 {{ define "main" }}
 <h1 style="margin: 0 0 0.5em 0;">{{ .Title }}</h1>
 {{$paginator := .Paginate (where .Site.Pages "Kind" "page").ByDate.Reverse 50 }}
-<table style="width: 100%;">
+<table>
   <thead>
     <tr>
       <th>Date</th>
@@ -21,5 +21,4 @@
     {{ end }}
   </tbody>
 </table>
-
 {{ end }}

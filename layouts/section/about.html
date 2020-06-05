@@ -1,5 +1,4 @@
-{{ define "main" }}
-{{ partial "social" . }}
+{{ define "main" }} {{ partial "social" . }}
 <img
   src="{{ .Params.profileImage }}"
   alt="profile image of {{ .Site.Params.author }}"
@@ -11,21 +10,29 @@
   "
 />
 
-<div
-  style="
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    border-bottom: solid 3px;
-  "
->
-  <h1 style="margin: 1em 0 0.15em 0;">
-    {{ .Params.prefix }} {{ .Params.name }}, {{ .Params.suffix }}
-  </h1>
-  <h2 style="margin: 0.15em 0;">{{ .Params.jobTitle }}</h2>
-  <h3 style="margin: 0.15em 0;">{{ .Params.office }}, {{ .Params.location }}</h3>
+<div style="margin-bottom: 3em;">
+  <div
+    style="
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      border-bottom: solid 3px;
+    "
+  >
+    <h1 style="margin: 1em 0 0.15em 0;">
+      {{ .Params.prefix }} {{ .Params.name }}, {{ .Params.suffix }}
+    </h1>
+    <h2 style="margin: 0.15em 0;">{{ .Params.jobTitle }}</h2>
+    <h3 style="margin: 0.15em 0;">
+      {{ .Params.office }}, {{ .Params.location }}
+    </h3>
+  </div>
+  {{ .Content }}
 </div>
-{{ .Content }}
-{{ partial "about/education" . }}
-{{ partial "about/publications" . }}
+<div style="margin-bottom: 3em;">
+  {{ partial "about/education" . }}
+</div>
+<div>
+  {{ partial "about/publications" . }}
+</div>
 {{ end }}

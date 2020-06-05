@@ -100,7 +100,7 @@
         "
       >
         <h3>Recent</h3>
-        <ol style="padding-left: 0.75em;">
+        <ol style="padding-left: 1em;">
           {{ range ((where .Site.Pages "Kind" "page").ByDate.Reverse) | first 5 }}
           <li>
             <a href="{{ .Permalink }}">{{ .Title | truncate 25 }}</a>
